@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+
 #xdg-mime default VortexStudio-handler.desktop x-scheme-handler/vortex-studio
 q='"'
 pay='"$1"'
@@ -43,6 +46,11 @@ What do you want to download?
 
 read opi
 
+echo "checking dependences..."
+
+PACKAGE="umu-launcher"
+
+sudo pacman -S --needed $PACKAGE
 
 
 echo '
