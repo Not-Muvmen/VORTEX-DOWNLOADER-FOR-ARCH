@@ -1,4 +1,4 @@
-# VORTEX-DOWNLOADER-FOR-ARCH
+# JUST-VORTEX-INSTALLER-FOR-ARCH
 
 A brief description of what this project is even about
 
