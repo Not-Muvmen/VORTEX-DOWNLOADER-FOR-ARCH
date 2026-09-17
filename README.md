@@ -12,7 +12,11 @@ And by methods [in forum](https://forum.playvortex.io/)
 unzip this file wherether you want and run Install.sh in console
 by then installation is pretty much straight forward
 
+**about how it works**
+- basically it downloads latest vortex/vortexstudio versions from their sources and add them as applications + makes them able to connect with browser (so you can play games/use studio)
+
 **post scriptum:**
 this is my first ever project on bash, so I would love to your feedback on this project, also you can dm [me in discord](https://discord.com/users/840619041763754005)
+also feel free to edit or use however you'd like
 
 
