@@ -4,7 +4,7 @@ A brief description of what this project is even about
 
 *Inspired by:*
 
-[This video](https://www.youtube.com/watch?v=537F7mb3Ce4) by Quintuple One
+[This video](https://www.youtube.com/watch?v=537F7mb3Ce4) by [Quintuple One](https://playvortex.io/users/11111/profile)
 
 And by methods [in forum](https://forum.playvortex.io/)
 
