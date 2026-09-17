@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=VortexStudio
+Exec=/home/muvmen/.local/bin/vortexstudio-handler.sh %u
+NoDisplay=true
+MimeType=x-scheme-handler/vortexstudio;
+
+
