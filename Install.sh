@@ -8,6 +8,7 @@ q='"'
 pay='"$1"'
 home='$HOME'
 # Находим папку, где лежит этот скрипт
+
 DIRF="$(cd "$(dirname "$0")" && pwd)"
 DIR="$(cd "$(dirname "$0")" && pwd)/Temp"
 Test="$(cd "$(dirname "$0")" && pwd)/тест.sh"
@@ -37,6 +38,8 @@ then
     pth="$HOME/GAMES"
 fi
 
+echo $pth > $HOME/.config/uninstall_vortex_path.txt
+
 echo -n "
 What do you want to download?
 1. Vortex
@@ -61,7 +64,7 @@ downloading...
 case $opi in
     1)
 
-curl -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
+curl -L -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
 
 echo "#!/bin/bash
 
@@ -95,17 +98,34 @@ xdg-mime default Vortex-handler.desktop x-scheme-handler/vortex
 
     2) 
         DOWNLOAD_DIR="$(xdg-user-dir DOWNLOAD)"
-        STUDIO_FILE="$DOWNLOAD_DIR/VortexStudio-Windows.zip"
+        
+        rm "$DOWNLOAD_DIR/VortexStudio-Windows.zip"
 
         xdg-open "https://playvortex.io/download/studio-windows"
 
         echo "Waiting for VortexStudio download..."
 
-        while [ ! -f "$STUDIO_FILE" ]; do
-            sleep 1
-        done
 
-        mv "$STUDIO_FILE" "$DIR/VortexStudio-Windows.zip"
+        
+while true; do
+    FOUND=$(find "$DOWNLOAD_DIR" -type f -name "VortexStudio-Windows.zip" 2>/dev/null | head -n 1)
+
+    if [ -n "$FOUND" ]; then
+        echo "Done:"
+        echo "$FOUND"
+        break
+    fi
+
+    sleep 2
+done
+
+
+
+
+
+        
+mv "$DOWNLOAD_DIR/VortexStudio-Windows.zip" "$DIR/VortexStudio-Windows.zip"
+        
 
 echo "#!/bin/bash
 
@@ -135,7 +155,7 @@ update-desktop-database ~/.local/share/applications
 xdg-mime default VortexStudio-handler.desktop x-scheme-handler/vortex-studio
         ;;
     3)
-        curl -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
+        curl -L -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
 
 echo "#!/bin/bash
 
@@ -166,17 +186,30 @@ xdg-mime default Vortex-handler.desktop x-scheme-handler/vortex
 
 
         DOWNLOAD_DIR="$(xdg-user-dir DOWNLOAD)"
-        STUDIO_FILE="$DOWNLOAD_DIR/VortexStudio-Windows.zip"
+        
+        rm "$DOWNLOAD_DIR/VortexStudio-Windows.zip"
 
         xdg-open "https://playvortex.io/download/studio-windows"
 
         echo "Waiting for VortexStudio download..."
 
-        while [ ! -f "$STUDIO_FILE" ]; do
-            sleep 1
-        done
 
-        mv "$STUDIO_FILE" "$DIR/VortexStudio-Windows.zip"
+        
+while true; do
+    FOUND=$(find "$DOWNLOAD_DIR" -type f -name "VortexStudio-Windows.zip" 2>/dev/null | head -n 1)
+
+    if [ -n "$FOUND" ]; then
+        echo "Done:"
+        echo "$FOUND"
+        break
+    fi
+
+    sleep 2
+done
+
+mv "$DOWNLOAD_DIR/VortexStudio-Windows.zip" "$DIR/VortexStudio-Windows.zip"
+        
+
 echo "#!/bin/bash
 
 export WINEPREFIX=$q$pth/VortexStudio/prefix$q
@@ -208,7 +241,7 @@ xdg-mime default VortexStudio-handler.desktop x-scheme-handler/vortex-studio
         ;;
     *)
 
-curl -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
+curl -L -o "$DIR/Vortex.zip" "https://playvortex.io/download/windows"
 
 echo "#!/bin/bash
 
