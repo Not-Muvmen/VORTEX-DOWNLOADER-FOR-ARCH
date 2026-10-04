@@ -1,2 +1,0 @@
-skibidi 
-dobdob
